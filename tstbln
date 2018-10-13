@@ -393,7 +393,7 @@ Upgrades
 		Passive: Multiply yield of boomerMonkey by 7
 		cost: 500,000,000 honor
 		req: 300 boomerMonkey
-	*bionicMonkeyWithRangs
+	*bionicMonkeyWithRang
 		name: Bionic Armed Monkey With 'Rangs
 		desc: That one was forced.
 		Passive: Multiply yield of boomerMonkey by 9
