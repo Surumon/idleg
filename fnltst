@@ -1,0 +1,1225 @@
+Let's make a game!
+	name: Idle Bluuns
+	by: lavaBlaziken
+	desc: Make your way through the world of bluuns, popping and destroying all that stand in your way! Purchase upgrades to destroy more bluuns per second!
+	Created:10/8/2018
+	version: 0.7
+
+Settings
+	building cost increase:130%
+	building cost refund:70%
+	spritesheet:icons, 48 by 48, bluunidleicons.jpg
+	
+
+Layout
+	*bluuns
+		contains:buttons
+		header: An enemy bluun. Click to attack! You have popped (bluunEnemy:clicks) bluuns via manual clicking.
+	*honour
+		contains:resources
+		header: How much honour you have. Each bluun you defeat gets you 1 honour.
+	*towers
+		contains:buildings, BulkDisplay
+		header: All your towers are here!
+	*upgrades
+		contains:upgrades
+		header: Upgrade your monkeys here!
+	*awards
+		contains:achievements
+		header: All your awards are displayed here!
+
+Buttons
+	*bluunEnemy
+		name:Enemy Bluun
+		desc: Fight the bluun, and pop it! You get 1 honour per click.
+		on click:yield 1 honor
+
+Resources
+	*honor
+		name: Honour
+		desc: How much honour you have for popping bluuns!
+	*goldenHonor
+		name: Golden Honor
+		desc: How much honour you have for popping GOLDEN bluuns!
+
+Buildings
+	*tackMonkey
+		name: Tack Monkey
+		desc: One of the lamest bloon-poppers honor can buy you, but still effective!
+		On tick:yield 0.2 honor
+		cost: 15 honor
+		cost increase: 110%
+		req: 1 honor:max
+		icon:icons 1,1
+	*automatedDartThrower
+		name: Dart Machine
+		desc: A machine to pop bloons via darts, using up as little of the world's fossil fuels as possible! Science is amazing!
+		On tick:yield 2 honor
+		cost: 250 honor
+		req: 150 honor:max
+		icon:icons 1,2
+	*bulletSniper
+		name: Bullet Monkey
+		desc: A monkey who stumbled across a sniper rifle, replicated it, and gave it to his comrades. Or one of those comrades. Who knows which?
+		On tick:yield 7 honor
+		cost: 1,320 honor
+		req: 1,220 honor:max
+		icon:icons 1,3
+	*boomerMonkey
+		name: Boomer Monkey
+		desc: A monkey with a boomerang. Or three. Or 10. Or a million. To be honest, he just picks them up and throws them from a pile of...how many again?
+		On tick:yield 20 honor
+		cost: 15,552 honor
+		req: 15,452 honor:max
+		icon:icons 1,4
+	*shurikenMonkey
+		name: Shuriken Monkey
+		desc: A monkey with a ton of shurikens. He learned from his ancient ninja sensei who was all knowing in the matters of serene meditation.
+		On tick:yield 75 honor
+		cost: 86,004 honor
+		req: 85,904 honor:max
+		icon:icons 2,1
+	*bombMonkey
+		name: Bomb Monkey
+		desc: This monkey decided to find out what would happen when he made a large shell, filled it with gunpowder, and lit a rope attached to it on fire. In short – it did not end well.
+		On tick:yield 204.5 honor
+		cost: 305,192 honor
+		req: 305,092 honor:max
+		icon:icons 2,2
+	*mortarMonkey
+		name: Mortar Monkey
+		desc: The monkeys have now advanced even further with technolegy, going GLOBAL DESTRUCTION!!! At least, that's what their A-320BANANA says.
+		On tick:yield 1,000 honor
+		cost: 2,000,000 honor
+		req: 1,999,900 honor:max
+		icon:icons 2,3
+	*monkeyArmy
+		name: Monkey Army
+		desc: A platoon of monkeys at your disposal. However, be warned you'll need a LOT of bananas. And banana juice. And banana splits. May want to order from the Bananeria.
+		On tick: yield 7,500 honor
+		cost: 15,282,926 honor
+		req: 500 Buildings:max
+		icon:icons 2,4
+	*omegaMonkey
+		name: Omega Monkey
+		desc: Finally, technology is here! The age of superheroes is upon us! Erm...what was the next part of my script? Script editor? SCRIPT EDITOR? Oh screw this studio. I'm outta here.
+		On tick: yield 20,001 honor
+		cost: 100,000,000 honor
+		req: 99,999,900 honor:max
+		icon:icons 3,1
+	*monkeyGod
+		name: Godly Monkey
+		desc: Hey, even the monkeys have to have religions.
+		On tick: yield 150,000 honor
+		cost: 1,500,000,000 honor
+		req: 1,499,999,900 honor:max
+		icon:icons 3,2
+	*undertakerMonkey
+		name: Undertaker Monkey
+		desc: This monkey pops only to get more pay, which comes from burials. And a bluun popping fest means TONS of graves to dig.
+		On tick:yield 305,834 honor
+		cost: 36,000,000,000 honor
+		req: 35,999,999,900 honor:max
+		icon:icons 3,3
+	*apprenticeMonkey
+		name: Apprentice Monkey
+		desc: A certain superhero's apprentice. You would want to ask them for a tome, but they probably wouldn't let you borrow one.
+		On tick: yield 1,000,000 honor
+		cost: 274,000,000,000 honor
+		req: 273,999,999,900 honor:max
+		icon:icons 3,4
+	*gameMasterMonkey
+		name: Game Master Monkey
+		desc: They control fate, time, matter, and politics. They will destroy all bluuns with a 12 sided die!!
+		on tick: yield 14,500,000 honor
+		cost: 1,050,000,000,000 honor
+		req: 1,049,999,999,900 honor:max
+		icon:icons 4,1
+	*powerGamerMonkey
+		name: Power Gamer Monkey
+		desc: No one can stop them. They want to do everything well. They destroy everything in their path. Their character is 14th level. There is no getting in their way.
+		On tick: yield 50,205,205 honor
+		cost: 27,000,000,000,000 honor
+		req: 26,999,999,999,900 honor:max
+		icon:icons 4,2
+	*supaMonkey
+		name: Supa Monkey
+		desc: This is it. The big one. The one we've all been waiting for. The best superhero on the block, SUPA MONKEY!!! And, erm...he's got pepsi? I think?
+		On tick: yield 200,000,000 honor
+		cost: 1,000,000,000,000,000 honor
+		req: 999,999,999,999,900 honor:max
+		icon:icons 4,3
+	*luckyMonkey
+		name: Lucky Monkey
+		desc: This guy. This freakin' guy.
+		On tick: yield (1/77)goldenHonor
+		cost: 100 goldenHonor
+		req: 1 goldenHonor:max
+		icon:icons 4,4
+
+Shinies
+	*goldenBluun
+		name: Golden Bluun
+		on click: yield (random(100-200)) goldenHonor
+		movement: anywhere shrink randomAngle fade bounce
+		frequency:0
+		frequency variation:10,800
+		duration:5
+		req: 1,000,000 honor per second
+		icon:icons 5,1
+		
+Upgrades
+//Oh my god, there's SO MANY upgrades. And achievements. Databases will hate me forever.
+
+	*longerRange
+		name: Longer Range
+		desc: See farther!
+		Passive: Multiply yield of tackMonkey by 125%
+		cost: 100 honor
+		req: 1 tackMonkey
+	*enhancedEyesight
+		name: Enhanced Sighting
+		desc: See camouflage!
+		Passive: Multiply yield of tackMonkey by 1.75
+		cost: 500 honor
+		req: 5 tackMonkey
+	*juggernaut
+		name: Juggernaut
+		desc: Hurl spiked balls! Full of pain!
+		Passive: Multiply yield of tackMonkey by 2.5
+		cost: 1,000 honor
+		req: 10 tackMonkey
+	*crushingSpike
+		name: Crushing Spike
+		desc: Hurl even bigger spiked balls, full of more pain!
+		Passive: Multiply yield of tackMonkey by 3.5
+		cost: 5,000 honor
+		req: 50 tackMonkey
+	*superJuggernaut
+		name: Super Juggernaut
+		desc: Hurl a crushing spike with the force of a gun. VERY painful.
+		Passive: Multiply yield of tackMonkey by 4.75
+		cost: 50,000 honor
+		req: 100 tackMonkey
+	*sharpenedTacks
+		name: Sharpened Tacks
+		desc: The tacks are sharper, allowing for more pops and more destruction.
+		Passive: Multiply yield of tackMonkey by 5.25
+		cost: 150,000 honor
+		req: 200 tackMonkey
+	*moreSharpenedTacks
+		name: Even More Sharpened Tacks
+		desc: Oh my god, we need to seriously blunt these tacks!
+		Passive: Multiply yield of tackMonkey by 7
+		cost: 500,000 honor
+		req: 300 tackMonkey
+	*tripleShot
+		name: Triple Shot
+		desc: Fires three of those needing-to-be-blunted tacks.
+		Passive: Multiply yield of tackMonkey by 9
+		cost: 2,000,000 honor
+		req: 400 tackMonkey
+	*supaMonkeyFanClub
+		name: Supa Monkey Fan Club
+		desc: Turns a whole ton of tack monkeys into supa monkeys.
+		Passive: Multiply yield of tackMonkey by 12
+		cost: 10,000,000 honor
+		req: 500 tackMonkey
+	*fanClubPopularity
+		name: Fan Club Popularity
+		desc: Your fan club is getting even more popular!
+		Passive: Multiply yield of tackMonkey by 15
+		cost: 100,000,000 honor
+		req: 1,000 tackMonkey
+	*fasterDarts
+		name: Faster Darts
+		desc: Jeez, those darts fire incredibly quickly!
+		Passive: Multiply yield of automatedDartThrower by 1.25
+		cost: 1,000 honor
+		req: 1 automatedDartThrower
+	*sharperDarts
+		name: Sharper Darts
+		desc: Them darts got incredibly stronk!
+		Passive: Multiply yield of automatedDartThrower by 1.75
+		cost: 5,000 honor
+		req: 5 automatedDartThrower
+	*ringO16
+		name: Ring O' 16
+		desc: Now you fire 16 darts!
+		Passive: Multiply yield of automatedDartThrower by 2.5
+		cost: 15,000 honor
+		req: 10 automatedDartThrower
+	*ringOFire
+		name: Ring O' Fire
+		desc: Oh my god. He's burninating. The countryside. And the peasants. And them thatched roof cottages!
+		Passive: Multiply yield of automatedDartThrower by 3.5
+		cost: 50,000 honor
+		req: 50 automatedDartThrower
+	*ringOPlasma
+		name: Ring O' Plasma
+		desc: PLASMAAAAAAAAAA!!!
+		Passive: Multiply yield of automatedDartThrower by 4.75
+		cost: 200,000 honor
+		req: 100 automatedDartThrower
+	*expandedFireArea
+		name: Expanded Fire Area
+		desc: Now you can fire in a larger area for more poppage.
+		Passive: Multiply yield of automatedDartThrower by 5.25
+		cost: 1,000,000 honor
+		req: 200 automatedDartThrower
+	*enhancedCombatArea
+		name: Enhanced Combat Area
+		desc: The name implies that you can fire in an even larger area!
+		Passive: Multiply yield of automatedDartThrower by 7
+		cost: 5,000,000 honor
+		req: 300 automatedDartThrower
+	*glaiveShooter
+		name: Glaive Shooter
+		desc: You fire glaives in addition to plasma.
+		Passive: Multiply yield of automatedDartThrower by 9
+		cost: 20,000,000 honor
+		req: 400 automatedDartThrower
+	*glaiveMaelstrom
+		name: Glaive Maelstrom
+		desc: The whole screen is covered in glaives!!
+		Passive: Multiply yield of automatedDartThrower by 12
+		cost: 100,000,000 honor
+		req: 500 automatedDartThrower
+	*glaivePlasmaBeam
+		name: Glaive Infused Plasma Beam
+		desc: Who even knew this was a thing?
+		Passive: Multiply yield of automatedDartThrower by 15
+		cost: 1,000,000,000 honor
+		req: 1,000 automatedDartThrower
+	*metallicCoating
+		name: Metallic Coating
+		desc: Fatter bullets. Fatter whales. Fatter faces. FATTER EVERYTHING!!
+		Passive: Multiply yield of bulletSniper by 1.25
+		cost: 10,000 honor
+		req: 1 bulletSniper
+	*pointSixOh
+		name: Point Six Oh
+		desc: Welp. We just advanced, what, how many centuries? And monkeys still eat bananas!
+		Passive: Multiply yield of bulletSniper by 1.75
+		cost: 50,000 honor
+		req: 5 bulletSniper
+	*lethalPrecision
+		name: Lethal Precision
+		desc: Hot dang, kid. That snipe-rifle is really stronk.
+		Passive: Multiply yield of bulletSniper by 2.5
+		cost: 150,000 honor
+		req: 10 bulletSniper
+	*antiMABBAction
+		name: Anti MABB Action
+		desc: Accuracy. Just one word: Accuracy. Do you have, like, a shooting range or something?
+		Passive: Multiply yield of bulletSniper by 3.5
+		cost: 500,000 honor
+		req: 50 bulletSniper
+	*maabSpecializedGun
+		name: MAAB Specialized Gun
+		desc: Now your gun can pierce through the hard shell of massive air bluun blimps like a hot spike through lead!
+		Passive: Multiply yield of bulletSniper by 4.75
+		cost: 2,000,000 honor
+		req: 100 bulletSniper
+	*quickerShots
+		name: Quicker Shots
+		desc: Your trigger has been cleaned of all sticky liquids. Now it fires faster somehow.
+		Passive: Multiply yield of bulletSniper by 5.25
+		cost: 10,000,000 honor
+		req: 200 bulletSniper
+	*supersedingGoggles
+		name: Superseding Goggles
+		desc: *click* *click* Yay! Now I have an extra level into goggles!
+		Passive: Multiply yield of bulletSniper by 7
+		cost: 50,000,000 honor
+		req: 300 bulletSniper
+	*semiautomaticGun
+		name: Semi-automatic Gun
+		desc: pew, pew, pew, pew, pew, pew, pew, pew, pew, pew, pew, pew, etc.
+		Passive: Multiply yield of bulletSniper by 9
+		cost: 200,000,000 honor
+		req: 400 bulletSniper
+	*supplyCrates
+		name: Supply Crates
+		desc: I need mags!
+		Passive: Multiply yield of bulletSniper by 12
+		cost: 1,000,000,000 honor
+		req: 500 bulletSniper
+	*airSupportHeli
+		name: Air Supporting Helicopter
+		desc: *cshk* *cshk* I need air *cshk* bring in *cshk* helicopter! Quickly, *cshk* pinned down!
+		Passive: Multiply yield of bulletSniper by 15
+		cost: 10,000,000,000 honor
+		req: 1,000 bulletSniper
+	*sonicRangs
+		name: Sonic 'Rangs
+		desc: *insert uncreative description here*
+		Passive: Multiply yield of boomerMonkey by 1.25
+		cost: 100,000 honor
+		req: 1 boomerMonkey
+	*glaiveRangs
+		name: Glaived 'Rangs
+		desc: Now the 'rangs are 'harper and 'ointier.
+		Passive: Multiply yield of boomerMonkey by 1.75
+		cost: 500,000 honor
+		req: 5 boomerMonkey
+	*ricochetRangs
+		name: Ricochet 'Rangs
+		desc: *boing* *boing* *boing* *boing* Wow, that's a lot of dead bluuns!
+		Passive: Multiply yield of boomerMonkey by 2.5
+		cost: 1,500,000 honor
+		req: 10 boomerMonkey
+	*masteredRangs
+		name: Mastered 'Rangs
+		desc: Now I have these permanent glaives around me, and they're spinning. I think I need to see a doctor.
+		Passive: Multiply yield of boomerMonkey by 3.5
+		cost: 5,000,000 honor
+		req: 50 boomerMonkey
+	*plasmaInfusedRangs
+		name: Plasma Infused 'Rangs
+		desc: I keep saying 'rangs. Have you noticed that? Bet you have. If you have, good job! If you haven't...well...don't give up your day job?
+		Passive: Multiply yield of boomerMonkey by 4.75
+		cost: 20,000,000 honor
+		req: 100 boomerMonkey
+	*multiHitRangs
+		name: Multi Hit 'Rangs
+		desc: Okay, I seriously need to stop saying that. I need to go get my script editor.
+		Passive: Multiply yield of boomerMonkey by 5.25
+		cost: 100,000,000 honor
+		req: 200 boomerMonkey
+	*redHotRangs
+		name: Red Hot 'Rangs
+		desc: Alright, I've sat down with the script editor. I have to keep all the 'rangs in because there's "nothing to replace that word." I swear...
+		Passive: Multiply yield of boomerMonkey by 7
+		cost: 500,000,000 honor
+		req: 300 boomerMonkey
+	*bionoMonkeyWithRangs
+		name: Bionic Armed Monkey With 'Rangs
+		desc: That one was forced.
+		Passive: Multiply yield of boomerMonkey by 9
+		cost: 2,000,000,000 honor
+		req: 400 boomerMonkey
+	*turboMonkeyWithRangs
+		name: Turbo Charged Monkey With 'Rangs
+		desc: That one was forced too. Not that it matters. My script editor don't give a fork.
+		Passive: Multiply yield of boomerMonkey by 12
+		cost: 10,000,000,000 honor
+		req: 500 boomerMonkey
+	*plsmaMonkeyWithRangs
+		name: Plasma Infused Monkey With 'Rangs
+		desc: At least it's the last upgrade. Out with the old, in with the new!
+		Passive: Multiply yield of boomerMonkey by 15
+		cost: 100,000,000,000 honor
+		req: 1,000 boomerMonkey
+	*senseisDiscipline
+		name: Sensei's Discipline
+		desc: PUNISHMENT ENFORCED!!
+		Passive: Multiply yield of shurikenMonkey by 1.25
+		cost: 1,000,000 honor
+		req: 1 shurikenMonkey
+	*knifeSharpener
+		name: Knife Sharpener
+		desc: Works on knives, shurikens, and faces! Some better than others...
+		Passive: Multiply yield of shurikenMonkey by 1.75
+		cost: 5,000,000 honor
+		req: 5 shurikenMonkey
+	*2xShot
+		name: 2x Shot
+		desc: Now you throw two of them knive-sharpened shurikens. What a day...
+		Passive: Multiply yield of shurikenMonkey by 2.5
+		cost: 15,000,000 honor
+	*bluunjitsu
+		name: Bluunjitsu
+		desc: The sacred art of bluunjitsu - A.K.A. the art of throwing five shurikens at once! SKILLZ!!
+		Passive: Multiply yield of shurikenMonkey by 3.5
+		cost: 50,000,000 honor
+	*ancientBluunjitsu
+		name: Ancient Bluunjitsu
+		desc: What? The more ancient forms of bluunjitsu depict monkeys throwing 10 shurikens at once, okay! It's not my fault!
+		Passive: Multiply yield of shurikenMonkey by 4.75
+		cost: 200,000,000 honor
+	*bluunSeekingShuriken
+		name: Bluun Seeking Shuriken
+		desc: Well, that was anticlimactic. Your shuriken doesn't even go straight anymore. You're welcome.
+		Passive: Multiply yield of shurikenMonkey by 5.25
+		cost: 1,000,000,000 honor
+	*distractingShuriken
+		name: Distracting Shuriken
+		desc: A shuriken sending your bluun opponents back whence they came!
+		Passive: Multiply yield of shurikenMonkey by 7
+		cost: 5,000,000,000 honor
+	*flareBomb
+		name: Flare Bomb
+		desc: Also known as stunning bomb, pausing bomb, and the AOE Killer Of Reds.
+		Passive: Multiply yield of shurikenMonkey by 9
+		cost: 20,000,000,000 honor
+	*maabSabotage
+		name: MAAB Sabotage
+		desc: Them MAABs don't stand a shred of a chance against you now!
+		Passive: Multiply yield of shurikenMonkey by 12
+		cost: 100,000,000,000 honor
+	*senseisCall
+		name: Sensei's Call
+		desc: Call Sensei Now At 1-565-102-6363! He Responds To All!
+		Passive: Multiply yield of shurikenMonkey by 15
+		cost: 1,000,000,000,000 honor
+	*fartherTossing
+		name: Farther Tossing
+		desc: Toss bombs farther! AOE more bluuns!
+		Passive: Multiply yield of bombMonkey by 1.25
+		cost: 10,000,000 honor
+	*fragmentation
+		name: Fragmentation
+		desc: Sharp bits of bombs after an explosion can actually really hurt. I speak from experience.
+		Passive: Multiply yield of bombMonkey by 1.75
+		cost: 50,000,000 honor
+	*clusterBombing
+		name: Cluster Bombing
+		desc: A cluster inside of that, and a cluster inside each of the clusters, if we can afford it. No? Okay.
+		Passive: Multiply yield of bombMonkey by 2.5
+		cost: 150,000,000 honor
+	*bluunImpact
+		name: Bluun Impact
+		desc: Not only do you have a cluster, you also stun bluuns!
+		Passive: Multiply yield of bombMonkey by 3.5
+		cost: 500,000,000 honor
+	*clusteredCluster
+		name: Clustered Cluster
+		desc: Remember when I fantasized about a cluster in a cluster? Yeah, we got the funding for that. By totally legal means.
+		Passive: Multiply yield of bombMonkey by 4.75
+		cost: 2,000,000,000 honor
+	*largerExplosionArea
+		name: Larger Explosion Area
+		desc: Bigger AOE is bigger overall damage! That's always good right?
+		Passive: Multiply yield of bombMonkey by 5.25
+		cost: 10,000,000,000 honor
+	*homingMissile
+		name: Homing Missile
+		desc: Instead of bombs, why don't we use missiles? They're statistically better (and more expensive)
+		Passive: Multiply yield of bombMonkey by 7
+		cost: 50,000,000,000 honor
+	*maabMauler
+		name: MAAB Mauler
+		desc: Does 10x damage to MAAB class bluuns. Oh wait that was overly statistical. I'm sorry.
+		Passive: Multiply yield of bombMonkey by 9
+		cost: 200,000,000,000 honor
+	*maabAssassin
+		name: MAAB Assassin
+		desc: Instakills MAABs, yet in a fun and surprisingly indestructive way.
+		Passive: Multiply yield of bombMonkey by 12
+		cost: 1,000,000,000,000 honor
+	*maabChampion
+		name: MAAB Champion
+		desc: This bad boy has defeated 100 trillion MAABs without even blowing up!
+		Passive: Multiply yield of bombMonkey by 15
+		cost: 10,000,000,000,000 honor
+	*moreFocusedTarget
+		name: More Focused Target
+		desc: Smaller target, larger amount of monkeys.
+		Passive: Multiply yield of mortarMonkey by 1.25
+		cost: 100,000,000 honor
+	*primeapeNapalm
+		name: Primeape Napalm
+		desc: BURNINATE THE PEASANTS, THE COUNTRYSIDE, AND THE THATCHED ROOF COTTAGES!!
+		Passive: Multiply yield of mortarMonkey by 1.75
+		cost: 500,000,000 honor
+	*doubleLayeredBlast
+		name: Double Layered Blast
+		desc: Two times the amount of poppage, and two times the amount of fun.
+		Passive: Multiply yield of mortarMonkey by 2.5
+		cost: 1,500,000,000 honor
+	*aBigOne
+		name: A Big One
+		desc: Now you pop three layers of bluun. Good job. You leveled up. Do you want a prize or something?
+		Passive: Multiply yield of mortarMonkey by 3.5
+		cost: 5,000,000,000 honor
+	*theBiggerOne
+		name: The Bigger One
+		desc: ...Science...is...so...AMAZING!!
+		Passive: Multiply yield of mortarMonkey by 4.75
+		cost: 20,000,000,000 honor
+	*biggerExplosions
+		name: Bigger Explosions
+		desc: Incredibly strong gunpowder has permitted science to DESTROY YOUR FACE!!
+		Passive: Multiply yield of mortarMonkey by 5.25
+		cost: 100,000,000,000 honor
+	*stunningBlast
+		name: Stunning Blast
+		desc: A blast that can stun all bluuns. And idiotic monkeys who got inside the range. SCIENCE!!
+		Passive: Multiply yield of mortarMonkey by 7
+		cost: 500,000,000,000 honor
+	*sosFlare
+		name: SOS Flare
+		desc: Now your camo bloons can become uncamoed.
+		Passive: Multiply yield of mortarMonkey by 9
+		cost: 2,000,000,000,000 honor
+	*lineupOfDestruction
+		name: Lineup Of Destruction
+		desc: Holy crap, 4 more mortars! That's, like, 5 times the firepower!
+		Passive: Multiply yield of mortarMonkey by 12
+		cost: 10,000,000,000,000 honor
+	*doomShot
+		name: Doom Shot
+		desc: Finally, the lead mortar, the A-320BANANA is here at last!
+		Passive: Multiply yield of mortarMonkey by 15
+		cost: 100,000,000,000,000 honor
+	*torches
+		name: Torches
+		desc: Can't have a good mob without torches!
+		Passive: Multiply yield of monkeyArmy by 1.25
+		cost: 1,000,000,000 honor
+	*dartSupply
+		name: Dart Supply
+		desc: A constant supply of darts for your marksmen to toss. Use them wisely!
+		Passive: Multiply yield of monkeyArmy by 1.75
+		cost: 5,000,000,000 honor
+	*helicopterSupporter
+		name: Helicopter Supporter
+		desc: No army can be an army without at least one machinegun equipped helicopter.
+		Passive: Multiply yield of monkeyArmy by 2.5
+		cost: 15,000,000,000 honor
+	*submarineSupporter
+		name: Submarine Supporter
+		desc: Not only support from the air, but support from the water as well.
+		Passive: Multiply yield of monkeyArmy by 3.5
+		cost: 50,000,000,000 honor
+	*44Magnum
+		name: .44 Magnum
+		desc: Now you have snipers with .44 Magnums! At least, I think that's what snipers need? I don't know. Why was I hired for this job?
+		Passive: Multiply yield of monkeyArmy by 4.75
+		cost: 200,000,000,000 honor
+	*reinforcements
+		name: Reinforcements
+		desc: Backup! I need backup! Backup? Oh wait, you haven't purchased this upgrade yet. Silly me!
+		Passive: Multiply yield of monkeyArmy by 5.25
+		cost: 1,000,000,000,000 honor
+	*trainingProgram
+		name: Training Program
+		desc: Your units fire faster, Underlord.
+		Passive: Multiply yield of monkeyArmy by 7
+		cost: 5,000,000,000,000 honor
+	*cmndrsSrgntsLtntnts
+		name: Commanders, Sergeants, and Lieutenants
+		desc: Order! I need order! GET IN A LINE! You! Slacker! Drop and give me 20!
+		Passive: Multiply yield of monkeyArmy by 9
+		cost: 20,000,000,000,000 honor
+	*serviceOrDeath
+		name: Service Or Death
+		desc: It's a life sentence or death to join the monkey army.
+		Passive: Multiply yield of monkeyArmy by 12
+		cost: 100,000,000,000,000 honor
+	*plasmaBeam
+		name: Plasma Beam
+		desc: Bring in the plasma gunz! We need mags! Too bad, make it fire anyway! But it's unsa-DO IT ANYWAY!! *bzzzzzzzzzzzzzzzzzzzort*
+		Passive: Multiply yield of monkeyArmy by 15
+		cost: 1,000,000,000,000,000 honor
+	*omegaLasers
+		name: Omega Lasers
+		desc: What's a superhero without laser vision?
+		Passive: Multiply yield of omegaMonkey by 1.25
+		cost: 10,000,000,000 honor
+	*plasmaLasers
+		name: Plasma Lasers
+		desc: Plasma vision is even cooler! If you have plasma vision, you're hired!
+		Passive: Multiply yield of omegaMonkey by 1.75
+		cost: 50,000,000,000 honor
+	*godlyRetainer
+		name: Godly Retainer
+		desc: You're the monkey god's retainer. Good job. You leveled up.
+		Passive: Multiply yield of omegaMonkey by 2.5
+		cost: 150,000,000,000 honor
+	*newGod
+		name: New God
+		desc: And now you're a god.
+		Passive: Multiply yield of omegaMonkey by 3.5
+		cost: 500,000,000,000 honor
+	*pharaoh
+		name: Pharaoh
+		desc: You are the god of all gods. Congratsulations.
+		Passive: Multiply yield of omegaMonkey by 4.75
+		cost: 2,000,000,000,000 honor
+	*kindaEpicRange
+		name: Slightly More Epic Range
+		desc: Your godly laser beam can fly further before dying.
+		Passive: Multiply yield of omegaMonkey by 5.25
+		cost: 10,000,000,000,000 honor
+	*totallyEpicRange
+		name: Totally Epic Range
+		desc: That is the largest range ever. You'll be sittin' with dem cool kids now.
+		Passive: Multiply yield of omegaMonkey by 7
+		cost: 50,000,000,000,000 honor
+	*roboticInfusion
+		name: Robotic Infusion
+		desc: Part killer god, part killer robot. I think we've got the best of both worlds here.
+		Passive: Multiply yield of omegaMonkey by 9
+		cost: 200,000,000,000,000 honor
+	*scientificMarvel
+		name: Scientific Marvel
+		desc: You are now a robot god AND a god of gods. You just really like playing god.
+		Passive: Multiply yield of omegaMonkey by 12
+		cost: 1,000,000,000,000,000 honor
+	*helpFromAFanClub
+		name: Help From A Fan Club
+		desc: The Supa Monkey Fan Club has decided to help you out, and now all of THEM have ascended to godhood too. You are very powerful!
+		Passive: Multiply yield of omegaMonkey by 15
+		cost: 10,000,000,000,000,000 honor
+	*religions
+		name: Religions
+		desc: The religion of banana.
+		Passive: Multiply yield of monkeyGod by 1.25
+		cost: 100,000,000,000 honor
+	*theProphet
+		name: The Prophet
+		desc: This kook insisted he recieved a message from god: Wipe out all bluuns! He has now converted to your side.
+		Passive: Multiply yield of monkeyGod by 1.75
+		cost: 500,000,000,000 honor
+	*apopalypse
+		name: Apopalypse
+		desc: There will come a day when all those bloons who disobeyed the will of the god will be PUNISHED.
+		Passive: Multiply yield of monkeyGod by 2.5
+		cost: 1,500,000,000,000 honor
+	*abalethKiller
+		name: Abaleth Killer
+		desc: ...and the gods drove the Abaleth back out to sea, thus freeing all from its cold, steely grasp.
+		Passive: Multiply yield of monkeyGod by 3.5
+		cost: 5,000,000,000,000 honor
+	*immortality
+		name: Immortality
+		desc: Why did it take a god this long to gain immortality? Well...long story.
+		Passive: Multiply yield of monkeyGod by 4.75
+		cost: 20,000,000,000,000 honor
+	*influentiality
+		name: Influentiality
+		desc: Longer titles obviously mean we're getting somewhere and not slacking off at our computer playing dumb idle games and listening to music!
+		Passive: Multiply yield of monkeyGod  by 5.25
+		cost: 100,000,000,000,000 honor
+	*laser
+		name: Laser
+		desc: Any who disobeys me get a full face of my big ol' M-1005 effectively-laser-beam shower of darts!
+		Passive: Multiply yield of monkeyGod by 7
+		cost: 500,000,000,000,000 honor
+	*otherGodsSupport
+		name: Other Gods' Support
+		desc: Support from gods like Apollo, Hades, Aries, Loki, etc.
+		Passive: Multiply yield of monkeyGod by 9
+		cost: 2,000,000,000,000,000 honor
+	*deathLaser
+		name: Death Laser
+		desc: Even more death added into my laser.
+		Passive: Multiply yield of monkeyGod by 12
+		cost: 10,000,000,000,000,000 honor
+	*plasmaLaser
+		name: Plasma Laser
+		desc: Now it's plasma-tiered, like literally every other final upgrade tier.
+		Passive: Multiply yield of monkeyGod by 15
+		cost: 100,000,000,000,000,000 honor
+	*shovel
+		name: Shovel
+		desc: Shovels make you dig your own graves.
+		Passive: Multiply yield of undertakerMonkey by 1.25
+		cost: 1,000,000,000,000 honor
+	*largerTowns
+		name: Larger Towns
+		desc: A larger town to see your deceased off. Unfortunately this usually doesn't matter, because no one wants to see bluuns off.
+		Passive: Multiply yield of undertakerMonkey by 1.75
+		cost: 5,000,000,000,000 honor
+	*funeralDirector
+		name: Funeral Director
+		desc: A promotion! How extravagant!
+		Passive: Multiply yield of undertakerMonkey by 2.5
+		cost: 15,000,000,000,000 honor
+	*sensCosplay
+		name: Sens Cosplay
+		desc: Daddy, daddy, look! It's Sens!
+		Passive: Multiply yield of undertakerMonkey by 3.5
+		cost: 50,000,000,000,000 honor
+	*deathsServant
+		name: Death's Servant
+		desc: R**y M****ry would really be getting pissed off.
+		Passive: Multiply yield of undertakerMonkey by 4.75
+		cost: 200,000,000,000,000 honor
+	*largerAreaOfService
+		name: Larger Area Of Service
+		desc: Hello? This is Buttcrack Funeral Service. Huh? 16,000 miles away? Sure, we can cover that distance. Bye!
+		Passive: Multiply yield of undertakerMonkey by 5.25
+		cost: 1,000,000,000,000,000 honor
+	*biggerGraves
+		name: Bigger Graves
+		desc: Now you can fit fat people inside of your graves.
+		Passive: Multiply yield of undertakerMonkey by 7
+		cost: 5,000,000,000,000,000 honor
+	*theEndBeNigh
+		name: The End Be Nigh
+		desc: Promotional video game! Get yer promotional video games here!
+		Passive: Multiply yield of undertakerMonkey by 9
+		cost: 20,000,000,000,000,000 honor
+	*unstoppableDeathMoon
+		name: Unstoppable Death Moon
+		desc: Promotional movies have now joined your promotional ranks. Press enter to act promotionally.
+		Passive: Multiply yield of undertakerMonkey by 12
+		cost: 100,000,000,000,000,000 honor
+	*underworld
+		name: Underworld
+		desc: Re-bury the already dead! That's a good way to up profits!
+		Passive: Multiply yield of undertakerMonkey by 15
+		cost: 1,000,000,000,000,000,000 honor
+	*biggerShot
+		name: Bigger Shot
+		desc: Magical bolts. Wow. And they're bigger. Amazing. Just wow. Pure amaze.
+		Passive: Multiply yield of apprenticeMonkey by 1.25
+		cost: 10,000,000,000,000 honor
+	*arcOfLightning
+		name: Arc Of Lightning
+		desc: Yay. Lightning. Now we can pop bluuns. Like, for real. I'm very impressed.
+		Passive: Multiply yield of apprenticeMonkey by 1.75
+		cost: 50,000,000,000,000 honor
+	*tornado
+		name: Tornado
+		desc: You have learned about wind now. Congratulations. Should we bow now or will a curtsy do?
+		Passive: Multiply yield of apprenticeMonkey by 2.5
+		cost: 150,000,000,000,000 honor
+	*temperedTornado
+		name: Tempered Tornado
+		desc: This tornado really sucks. Like really. Except it's stronger. Somehow. I - wha - hu - screw it I'm out.
+		Passive: Multiply yield of apprenticeMonkey by 3.5
+		cost: 500,000,000,000,000 honor
+	*theWindsWrath
+		name: The Wind's Wrath
+		desc: HO- WOW! Please use that only for popping bluuns.
+		Passive: Multiply yield of apprenticeMonkey by 4.75
+		cost: 2,000,000,000,000,000 honor
+	*fireball
+		name: Fireball
+		desc: Exploding flames always mean good things!?!
+		Passive: Multiply yield of apprenticeMonkey by 5.25
+		cost: 10,000,000,000,000,000 honor
+	*monkeyDetector
+		name: Monkey Detector
+		desc: Camouflage? HAH! Laughable. All the cool monkeys can see through camo!
+		Passive: Multiply yield of apprenticeMonkey by 7
+		cost: 50,000,000,000,000,000 honor
+	*dragonsFlame
+		name: Dragons' Flame
+		desc: ...And now we interrupt Bluun Idle to bring you Generic Fantasy Wonderland #...what are we on now? I think it's 5,703.
+		Passive: Multiply yield of apprenticeMonkey by 9
+		cost: 200,000,000,000,000,000 honor
+	*pheonix
+		name: Pheonix
+		desc: So. How are you doing today, Farkes?
+		Passive: Mutliply yield of apprenticeMonkey by 12
+		cost: 1,000,000,000,000,000,000 honor
+	*theFiresFury
+		name: The Fire's Fury
+		desc: You do not wanna piss this monkey off.
+		Passive: Multiply yield of apprenticeMonkey by 15
+		cost: 10,000,000,000,000,000,000 honor
+	*sixSidedDie
+		name: 6 Sided Die
+		desc: 4 sides to 6 sides.
+		Passive: Mutliply yield of gameMasterMonkey by 1.25
+		cost: 100,000,000,000,000 honor
+	*tenSidedDie
+		name: 10 Sided Die
+		desc: 6 sides to 10 sides.
+		Passive: Multiply yield of gameMasterMonkey by 1.75
+		cost: 500,000,000,000,000 honor
+	*twelveSidedDie
+		name: 12 Sided Die
+		desc: 10 sides to 12 sides.
+		Passive: Multiply yield of gameMasterMonkey by 2.5
+		cost: 1,500,000,000,000,000 honor
+	*twentySidedDie
+		name: 20 Sided Die
+		desc: 12 sides to 20 sides.
+		Passive: Mutliply yield of gameMasterMonkey by 3.5
+		cost: 5,000,000,000,000,000 honor
+	*hundredSidedDie
+		name: 100 Sided Die
+		desc: 20 sides to 100 sides. Wowie.
+		Passive: Multiply yield of gameMasterMonkey by 4.75
+		cost: 20,000,000,000,000,000 honor
+	*fiveHundredSidedDie
+		name: 500 Sided Die
+		desc: 100 sides to 500 sides. We are ascending into godhood.
+		Passive: Multiply yield of gameMasterMonkey by 5.25
+		cost: 100,000,000,000,000,000 honor
+	*thousandSidedDie
+		name: 1,000 Sided Die
+		desc: 500 sides to 1,000 sides. Eventually this will skyrocket even more.
+		Passive: Multiply yield of gameMasterMonkey by 7
+		cost: 500,000,000,000,000,000 honor
+	*tenThousandSidedDie
+		name: 10,000 Sided Die
+		desc: 1,000 sides to 10,000 sides. This is getting insane.
+		Passive: Multiply yield of gameMasterMonkey by 9
+		cost: 2,000,000,000,000,000,000 honor
+	*millionSidedDie
+		name: 1,000,000 Sided Die
+		desc: 10,000 sides to 1,000,000 sides. Eventually we're going to have a dice bigger than Earth here.
+		Passive: Multiply yield of gameMasterMonkey by 12
+		cost: 10,000,000,000,000,000,000 honor
+	*infiniteSidedDie
+		name: Infinite Sided Die
+		desc: 1,000,000 sides to an infinite number of sides. Yes, I just made that reference.
+		Passive: Multiply yield of gameMasterMonkey by 15
+		cost: 100,000,000,000,000,000,000 honor
+	*kewlHeadband
+		name: Kewl Headband
+		desc: Welp. You are now officially into Japanese karate taekwondo crap now.
+		Passive: Multiply yield of powerGamerMonkey by 1.25
+		cost: 1,000,000,000,000,000 honor
+	*twentyIntoEveryStat
+		name: 20 Into Every Stat
+		desc: 0.0
+		Passive: Multiply yield of powerGamerMonkey by 1.75
+		cost: 5,000,000,000,000,000 honor
+	*defeatingDeath
+		name: Defeating Death
+		desc: Technically, that's not quite accurate. It's more like, defeating avatar of death.
+		Passive: Multiply yield of powerGamerMonkey by 2.5
+		cost: 15,000,000,000,000,000 honor
+	*multiclassCharacter
+		name: Multiclassed Character
+		desc: Damned jack-of-all-trades ers!
+		Passive: Multiply yield of powerGamerMonkey by 3.5
+		cost: 50,000,000,000,000,000 honor
+	*awesomeSpinKick
+		name: Spin Kick Of Awesomeness
+		desc: This attack does 2d12*strength damage.
+		Passive: Multiply yield of powerGamerMonkey by 4.75
+		cost: 200,000,000,000,000,000 honor
+	*powerfulPunch
+		name: Powerful Punch
+		desc: Fighter + Fist = POWERGAMING
+		Passive: Multiply yield of powerGamerMonkey by 5.25
+		cost: 1,000,000,000,000,000,000 honor
+	*crackshotBow
+		name: Crackshot Bow
+		desc: SHOT!
+		Passive: Multiply yield of powerGamerMonkey by 7
+		cost: 5,000,000,000,000,000,000 honor
+	*wizardlyFire
+		name: Wizardly Fire
+		desc: Tragdar approved.
+		Passive: Multiply yield of powerGamerMonkey by 9
+		cost: 20,000,000,000,000,000,000 honor
+	*wizardlyFlood
+		name: Wizardly Flood
+		desc: Flood them villages! Make them nobles h8 u fr gud!
+		Passive: Multiply yield of powerGamerMonkey by 12
+		cost: 100,000,000,000,000,000,000 honor
+	*generalMastery
+		name: General Mastery
+		desc: Get mastered on!
+		Passive: Multiply yield of powerGamerMonkey by 15
+		cost: 1,000,000,000,000,000,000,000 honor
+	*laserEyesight
+		name: Laser Eyesight
+		desc: Shoot lasered beamenations at your foughs
+		Passive: Multiply yield of supaMonkey by 1.25
+		cost: 10,000,000,000,000,000 honor
+	*plasmaEyesight
+		name: Plasma Eyesight
+		desc: Why use lasers when you could use plasma beams?
+		Passive: Multiply yield of supaMonkey by 1.75
+		cost: 50,000,000,000,000,000 honor
+	*plasmaGod
+		name: Plasma God
+		desc: You have became the plasma god. PLASMAAAAAAAAAAAAAAAAAAAAAAAAAAAA!!
+		Passive: Multiply yield of supaMonkey by 2.5
+		cost: 150,000,000,000,000,000 honor
+	*godOfSun
+		name: God Of Sun
+		desc: You are now the sun god.
+		Passive: Multiply yield of supaMonkey by 3.5
+		cost: 500,000,000,000,000,000 honor
+	*godOfMonkeys
+		name: God Of Monkeys
+		desc: Think of yourself as a pharaoh. Also, congratulations. You are freakin' amazing.
+		Passive: Multiply yield of supaMonkey by 4.75
+		cost: 2,000,000,000,000,000,000 honor
+	*hugeRange
+		name: hugeRange
+		desc: Your range is even huger than normal!
+		Passive: Multiply yield of supaMonkey by 5.25
+		cost: 10,000,000,000,000,000,000 honor
+	*omegaRange
+		name: Omega Range
+		desc: Why settle for huge when you can have omega?
+		Passive: Multiply yield of supaMonkey by 7
+		cost: 50,000,000,000,000,000,000 honor
+	*planetWideRange
+		name: Planet Wide Range
+		desc: *flings dart* Halfway around the planet: Ow! My brai-n-w-s-g-f-d-e-a-d
+		Passive: Multiply yield of supaMonkey by 9
+		cost: 200,000,000,000,000,000,000 honor
+	*roboticSuit
+		name: Robotic Suit
+		desc: Halfway to the robotic transformation, halfway towards pharaoh.
+		Passive: Multiply yield of supaMonkey by 12
+		cost: 1,000,000,000,000,000,000,000 honor
+	*technicalTerror
+		name: Technical Terror
+		desc: Death ray. Just a death ray. A monkey-ified death ray.
+		Passive: Multiply yield of supaMonkey by 15
+		cost: 10,000,000,000,000,000,000,000 honor
+	*goldenHat
+		name: Golden Hat
+		desc: Yay! More luck!
+		Passive: Multiply yield of luckyMonkey by 1.7
+		cost: 7,777 goldenHonor
+	*goldenBoots
+		name: Golden Boots
+		desc: Footwear is important too!
+		Passive: Multiply yield of luckyMonkey by 7.7
+		cost: 77,777 goldenHonor
+	*goldenHeadband
+		name: Golden Headband
+		desc: Make your hair look even better!
+		Passive: Multiply yield of luckyMonkey by 17.7
+		cost: 77,777,777 goldenHonor
+	*goldenEarrings
+		name: Golden Earrings
+		desc: Earrings don't necessarily have to be JUST for girls, you know.
+		Passive: Multiply yield of luckyMonkey by 77.7
+		cost: 777,777,777,777 goldenHonor
+	*goldenSuit
+		name: Golden Suit
+		desc: This one matters the most!
+		Passive: Multiply yield of luckyMonkey by 177.7
+		cost: 7,777,777,777,777,777,777 goldenHonor
+	*shamrockDarts
+		name: Shamrock Darts
+		desc: Saint Patrick's Day has never been happier with our four leaf clover-infused darts!
+		Passive: Multiply yield of luckyMonkey by 777.7
+		cost: 777,777,777,777,777,777,777,777,777 goldenHonor
+	*cloveredGrass
+		name: Clovered Grass
+		desc: The grass has all turned into four leaf clovers.
+		Passive: Multiply yield of luckyMonkey by 1,777.7
+		cost: 77,777,777,777,777,777,777,777,777,777,777,777,777,777,777 goldenHonor
+	*cloverMoon
+		name: Clover Moon
+		desc: The moon is a giant four-leaf clover!
+		Passive: Multiply yield of luckyMonkey by 7,777.7
+		cost: 777,777,777,777,777,777,777,777,777,777,777,777,777,777,777,777,777,777,777,777,777,777,777,777 goldenHonor
+	*cloverEarth
+		name: Clover Earth
+		desc: The entire Earth is a giant four-leaf clover! This is getting ridiculous!
+		Passive: Multiply yield of luckyMonkey by 17,777.7
+		cost: 777,777,777,777,777,777,777,777,777,777,777,777,777,777,777,777,777,777,777,777,777,777,777,777,777,777,777,777,777,777,777,777,777,777,777,777 goldenHonor
+	*cloverSun
+		name: Clover Sun
+		desc: Welp. This is certainly the apopalypse. Time to kill myself! *boing*
+		Passive: Multiply yield of luckyMonkey by 77,777.7
+		cost: 777,777,777,777,777,777,777,777,777,777,777,777,777,777,777,777,777,777,777,777,777,777,777,777,777,777,777,777,777,777,777,777,777,777,777,777,777,777,777,777,777,777,777,777,777,777,777,777,777,777,777,777,777 goldenHonor
+	*redBluun
+		name: Red Bluun
+		desc: The gateway to all bluuns. Get ready for the apopalypse! Here they come! Oh. He's very weak. Easy peasy.
+		Passive: Multiply yield of Buildings by 1.01
+		cost: 1 goldenHonor
+		req: 1,000,000 honor per second
+	*blueBluun
+		name: Blue Bluun
+		desc: Slightly stronger than a red bluun. Hazard level - 0.5
+		Passive: Multiply yield of Buildings by 1.02
+		cost: 10 goldenHonor
+		req: 10,000,000 honor per second
+	*greenBluun
+		name: Green Bluun
+		desc: Green. Why does green hate me? It's like my least favorite color.
+		Passive: Multiply yield of Buildings by 1.03
+		cost: 100 goldenHonor
+		req: 20,000,000 honor per second
+	*yellowBluun
+		name: Yellow Bluun
+		desc: No one likes yellow.
+		Passive: Multiply yield of Buildings by 1.04
+		cost: 1,000 goldenHonor
+		req: 30,000,000 honor per second
+	*pinkBluun
+		name: Pink Bluun
+		desc: Pinky toe, more like!
+		Passive: Multiply yield of Buildings by 1.05
+		cost: 10,000 goldenHonor
+		req: 50,000,000 honor per second
+	*regrowthProperty
+		name: Regrowth Property
+		desc: There's a regrowth-shaped hole in my regrowth-shaped heart!
+		Passive: Multiply yield of Buildings by 1.07
+		cost: 100,000 goldenHonor
+		req: 100,000,000 honor per second
+	*blackBluun
+		name: Black Bluun
+		desc: No explosions can 'splode the 'splody 'splode.
+		Passive: Multiply yield of Buildings by 1.10
+		cost: 1,000,000 goldenHonor
+		req: 200,000,000 honor per second
+	*whiteBluun
+		name: White Bluun
+		desc: No ice can freeze the freezy freeze.
+		Passive: Multiply yield of Buildings by 1.10
+		cost: 1,000,000 goldenHonor
+		req: 200,000,000 honor per second
+	*camoProperty
+		name: Camo Property
+		desc: You can't see me! I can't see you! Ahahahaha!
+		Passive: Multiply yield of Buildings by 1.12
+		cost: 10,000,000 goldenHonor
+		req: 300,000,000 honor per second
+	*purpleBluun
+		name: Purple Bluun
+		desc: Purple? Wow, their coloring is getting a lot better. Props to the guys at Ninja Kiwi.
+		Passive: Multiply yield of Buildings by 1.14
+		cost: 100,000,000 goldenHonor
+		req: 500,000,000 honor per second
+	*ZebraBluun
+		name: Zebra Bluun
+		desc: white bluun + black bluun = zebra bluun * sharp = dead zebra bluun
+		Passive: Multiply yield of Buildings by 1.16
+		cost: 1,000,000,000 goldenHonor
+		req: 1,000,000,000 honor per second
+	*leadBluun
+		name: Lead Bluun
+		desc: Y'know, we really need a thing immune to sharp-s. Let's make one! *BAD IDEA*
+		Passive: Multiply yield of Buildings by 1.20
+		cost: 100,000,000,000 goldenHonor
+		req: 2,000,000,000 honor per second
+	*rainbowBluun
+		name: Rainbow Bluun
+		desc: So...rainbow, eh? We really have sank down to THIS level? This is friggin' stupid!
+		Passive: Multiply yield of Buildings by 1.24
+		cost: 100,000,000,000,000 goldenHonor
+		req: 3,000,000,000 honor per second
+	*ceramicBluun
+		name: Ceramic Bluun
+		desc: Clay powers. *clay* powers. This is what's happening to my life right now.
+		Passive: Multiply yield of Buildings by 1.28
+		cost: 100,000,000,000,000,000 goldenHonor
+		req: 5,000,000,000 honor per second
+	*maabClassMAAB
+		name: MAAB
+		desc: Our first MAAB class bluun - Massive Acceleration Air Blimp. Takes several hundred hits to pop.
+		Passive: Multiply yield of Buildings by 1.32
+		cost: 100,000,000,000,000,000,000 goldenHonor
+		req: 10,000,000,000 honor per second
+	*fortifiedProperty
+		name: Fortified Property
+		desc: Now bluuns are fortified. This makes them take EVEN MORE hits to pop.
+		Passive: Multiply yield of Buildings by 1.36
+		cost: 100,000,000,000,000,000,000,000 goldenHonor
+		req: 20,000,000,000 honor per second
+	*maabClassBOB
+		name: BOB
+		desc: BOB - Brutal Ornary Blimp - this is really hard and then splits into 4 MAABs.
+		Passive: Multiply yield of Buildings by 1.4
+		cost: 100,000,000,000,000,000,000,000,000 goldenHonor
+		req: 30,000,000,000 honor per second
+	*maabClassZOBD
+		name: ZOBD
+		desc: ZOBD - Zeppelin of Bluun Destruction - The most difficult of all bluuns that aren't camo'd or have a camo'd MAAB class in them.
+		Passive: Multiply yield of Buildings by 1.5
+		cost: 100,000,000,000,000,000,000,000,000,000 goldenHonor
+		req: 50,000,000,000 honor per second
+	*maabClassDUT
+		name: DUT
+		desc: DUT - Dark Unforgivable Titan - Camo'd MAAB class that is incredibly difficult to hit.
+		Passive: Multiply yield of Buildings by 1.75
+		cost: 100,000,000,000,000,000,000,000,000,000,000 goldenHonor
+		req: 100,000,000,000 honor per second
+	*maabClassDAB
+		name: DAB
+		desc: DAB - Doom Airship with Bluuns - THE SINGLE HARDEST NON-BOSS BLUUN EVER!
+		Passive: Multiply yield of Buildings by 2
+		cost: 100,000,000,000,000,000,000,000,000,000,000,000 goldenHonor
+		req: 1,000,000,000,000 honor per second
+	*sharperClicks
+		name: Sharper Clicks
+		desc: Get better clicking power!
+		Passive: Multiply yield of bluunEnemy by 2
+		cost: 10 honor
+		req: bluunEnemy:clicks > 0
+	*evenSharperClicks
+		name: Even More Sharper Clicks
+		desc: Click. Click. Click. Click. Click. Click. Click. Click. Click. Click. Click. Click. Click. Click. Click. Click. Click. Click. Click. Click.
+		Passive: Multiply yield of bluunEnemy by 2
+		cost: 1,000,000 honor
+		req: bluunEnemy:clicks > 1,000
+	*laserInfusedClicks
+		name: Laser Infused Clicks
+		desc: CLIIIIIIIIIIIIIIIIIIIIIIICK
+		Passive: Multiply yield of bluunEnemy by 4
+		cost: 1,000,000,000 honor
+		req: bluunEnemy:clicks > 10,000
+	*plasmaInfusedClicks
+		name: Plasma Infused Clicks
+		desc: Click. Click. *zap* *zap* cli-cli-cli-clickity-clickity-cli-clickity. *zazaazazazazazaazaazaazaazazazap*
+		Passive: Mutiply yield of bluunEnemy by 4
+		cost: 1,000,000,000,000 honor
+		req: bluunEnemy:clicks > 100,000
+Achievements
+//Don't fully know if all of these work yet. I haven't tested because I don't know the URL of this file. Sorry if this game doesn't work. Love you all! -lavaBlaziken
+	*clicker
+		name: Clicker
+		desc: You've defeated a bluun manually. Tack monkeys do more than that in 20 seconds. Which is sad.
+		req: 1 bluunEnemy:clicks
+	*bluunPunisher
+		name: Bluun Punisher
+		desc: You're shaping up, scrawny!
+		req: 1,000 bluunEnemy:clicks
+	*areYouaNerd
+		name: Are You A Nerd
+		desc: Seriously? Are you a nerd? You've clicked like a million times!
+		req: 1,000,000 bluunEnemy:clicks
+	*bluunPopper
+		name: Bluun Popper
+		desc: You've popped so many bluuns that you're making Bluun pop-corn!
+		req: 1,000,000,000 bluunEnemy:clicks
+	*youHavePoppedaLot
+		name: You Have Popped A Lot
+		desc: 1 trillion clicks isn't very bad, you know.
+		req: 1,000,000,000,000 bluunEnemy:clicks
+	*automation
+		name: Automation
+		desc: Hey, at least something's working out here.
+		req: 1 honor:ps
+	*automatedPopping
+		name: Automated Destruction
+		desc: This is bad.
+		req: 100 honor:ps
+	*theSpeedOfLight
+		name: The Speed Of Light
+		desc: Your honor per second value is off the charts.
+		req: 10,000,000 honor:ps
+	*reallyGettingIntoIt
+		name: Really Getting Into It
+		desc: Holy crap. You're really into this game.
+		req: 1,000,000,000,000 honor:ps
+	*lucky
+		name: Lucky
+		desc: You hit the number right on the nose. I was wondering when you would.
+		req: 77 luckyMonkey
+	*stupidAchievement
+		name: This is a Very Stupid Achievement
+		desc: You're incredibly bad at life. Okay? Seriosly, why would you only have a Supa Monkey? You would have to like click a bajillion times.
+		req: 0 tackMonkey, 0 automatedDartThrower, 0 bulletSniper, 0 boomerMonkey, 0 shurikenMonkey, 0 bombMonkey, 0 monkeyArmy, 0 mortarMonkey, 0 omegaMonkey, 0 monkeyGod, 0 undertakerMonkey, 0 gameMasterMonkey, 0 powerGamerMonkey, 0 apprenticeMonkey, 1 supaMonkey
+	*thatWasABadIdea
+		name: That Was A Bad Idea
+		desc: More will come. MORE WILL COME!
+		req: goldenBloon:clicks=1
+	*pureLuckNoSkill
+		name: Pure Luck No Skill
+		desc: There is a 1/1 million chance of you recieving this achievement, when you've already recieved the Very Stupid Achievement.
+		req: (have stupidAchievement and chance(0.0001%)
+	*buyingAndSelling
+		name: Buying And Selling
+		desc: Get exactly 1 of every tower. Yes. You have to buy AND sell. I'm a jerk.
+		req: 1 tackMonkey, 1 automatedDartThrower, 1 bulletSniper, 1 boomerMonkey, 1 shurikenMonkey, 1 bombMonkey, 1 monkeyArmy, 1 mortarMonkey, 1 omegaMonkey, 1 monkeyGod, 1 undertakerMonkey, 1 gameMasterMonkey, 1 powerGamerMonkey, 1 apprenticeMonkey, 1 supaMonkey
+	*incredibleStrength
+		name: Incredible Strength
+		desc: Now you've clearly got the hang of things! Your statistics still show newb rank, but you're getting better!
+		req: 1,000,000 honor:ps, 1,000,000,000,000,000,000 honor:max, 100,000,000 goldenHonor:max, goldenBloon:clicks=10, 100 buildings
+	*playingDirty
+		name: Playing Dirty
+		desc: Evillllll, that's what I am! Who knows what this achievement is?
+		req: 0 honor:ps, 1,000,000 honor, 10 goldenHonor
