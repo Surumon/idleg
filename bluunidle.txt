@@ -1,9 +1,9 @@
 Let's make a game!
-	name:Idle Bluuns
-	author:lavaBlaziken
+	name: Idle Bluuns
+	author: Lavablaziken
 	desc: Make your way through the world of bluuns, popping and destroying all that stand in your way! Purchase upgrades to destroy more bluuns per second!
 	Created:10/8/2018
-	version: 0.4 tower, no sheet
+	version: 0.4
 
 Settings
 	building cost increase:130%
